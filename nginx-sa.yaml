@@ -6,12 +6,11 @@ metadata:
     run: nginx
   name: nginx
 spec:
-  nodeSelector:
-    accelerator: nvidia-tesla-p100
   containers:
   - image: nginx
     name: nginx
     resources: {}
   dnsPolicy: ClusterFirst
-  restartPolicy: Always
+  restartPolicy: Never
+  serviceAccountName: myuser
 status: {}

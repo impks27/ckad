@@ -6,10 +6,16 @@ metadata:
     run: nginx
   name: nginx
 spec:
-  nodeSelector:
-    accelerator: nvidia-tesla-p100
   containers:
-  - image: nginx
+    env:
+     - name: option
+       valueFrom:
+         configMapKeyRef:
+          name: appconfig
+          key: prop1
+  - args:
+    - echo $option
+    image: nginx
     name: nginx
     resources: {}
   dnsPolicy: ClusterFirst

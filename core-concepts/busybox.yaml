@@ -3,15 +3,15 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: nginx
-  name: nginx
+    run: busybox
+  name: busybox
 spec:
-  nodeSelector:
-    accelerator: nvidia-tesla-p100
   containers:
-  - image: nginx
-    name: nginx
+  - args:
+    - env
+    image: busybox
+    name: busybox
     resources: {}
   dnsPolicy: ClusterFirst
-  restartPolicy: Always
+  restartPolicy: Never
 status: {}

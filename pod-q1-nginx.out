@@ -1,0 +1,48 @@
+Name:         q1-nginx
+Namespace:    falcon
+Priority:     0
+Node:         docker-desktop/192.168.65.3
+Start Time:   Mon, 22 Mar 2021 10:21:22 +0530
+Labels:       run=q1-nginx
+Annotations:  <none>
+Status:       Running
+IP:           10.1.1.247
+IPs:
+  IP:  10.1.1.247
+Containers:
+  q1-nginx:
+    Container ID:   docker://8d92fed48af27dfbc8a85d0566d8dff90111078fd1f9c0e02dc04547af0026ef
+    Image:          nginx
+    Image ID:       docker-pullable://nginx@sha256:d2925188effb4ddca9f14f162d6fba9b5fab232028aa07ae5c1dab764dca8f9f
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 22 Mar 2021 10:21:32 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-wpjmb (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-wpjmb:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-wpjmb
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  63s   default-scheduler  Successfully assigned falcon/q1-nginx to docker-desktop
+  Normal  Pulling    60s   kubelet            Pulling image "nginx"
+  Normal  Pulled     56s   kubelet            Successfully pulled image "nginx" in 4.1124681s
+  Normal  Created    54s   kubelet            Created container q1-nginx
+  Normal  Started    53s   kubelet            Started container q1-nginx

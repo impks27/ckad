@@ -6,12 +6,17 @@ metadata:
     run: nginx
   name: nginx
 spec:
-  nodeSelector:
-    accelerator: nvidia-tesla-p100
   containers:
   - image: nginx
     name: nginx
+    ports:
+    - containerPort: 80
     resources: {}
+    livenessProbe:
+      exec:
+        command:
+          - ls
+      initialDelaySeconds: 5
+      periodSeconds: 5
   dnsPolicy: ClusterFirst
-  restartPolicy: Always
-status: {}
+  restartPolicy: Never

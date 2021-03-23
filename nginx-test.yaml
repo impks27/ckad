@@ -6,12 +6,15 @@ metadata:
     run: nginx
   name: nginx
 spec:
-  nodeSelector:
-    accelerator: nvidia-tesla-p100
   containers:
   - image: nginx
     name: nginx
     resources: {}
+    env:
+      - name: USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: mysecret2
+            key: username
   dnsPolicy: ClusterFirst
-  restartPolicy: Always
-status: {}
+  restartPolicy: Never

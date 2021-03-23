@@ -29,5 +29,5 @@ spec:
     - containerPort: 80
     resources: {}
   dnsPolicy: ClusterFirst
-  restartPolicy: Never
+  restartPolicy: Always
 status: {}
