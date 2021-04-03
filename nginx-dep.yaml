@@ -3,16 +3,14 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: busybox
-  name: busybox
+    run: nginx
+  name: nginx
 spec:
+  nodeSelector:
+    nodeName: nginxnode
   containers:
-  - args:
-    - /bin/sh
-    - -c
-    - sleep 3600
-    image: busybox
-    name: busybox
+  - image: nginx
+    name: nginx
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Never
